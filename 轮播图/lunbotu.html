@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>轮播图</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="lunbo.js"></script>
+</head>
+<body>
+	<div class="box" id="ibox">
+		<div class="box1" id="ibox1">
+			<a href="#" style="display: block;"><img src="images/1.gif" alt=""></a>
+			<a href="#"><img src="images/1.jpg" alt=""></a>
+			<a href="#"><img src="images/2.jpg" alt=""></a>
+			<a href="#"><img src="images/3.jpg" alt=""></a>
+			<a href="#"><img src="images/4.jpg" alt=""></a>
+			<a href="#"><img src="images/5.jpg" alt=""></a>
+			<a href="#"><img src="images/6.jpg" alt=""></a>
+			<a href="#"><img src="images/7.jpg" alt=""></a>
+			<a href="#"><img src="images/8.jpg" alt=""></a>
+		</div>
+		<div class="btn">
+			<span id="prev"><</span>
+			<span id="next">></span>
+		</div> 
+	</div>
+</body>
+		<script type="text/javascript">
+		var ibox=document.getElementById('ibox');
+		var ibox1=document.getElementById('ibox1');
+		var btn=document.getElementById('btn')
+		var image=ibox1.children;
+		var i=0;
+		var timer=setInterval(change,2000);
+		function change(){
+			animate(image[i],{left:500});
+			++i>image.length-1?i=0:i;
+			image[i].style.left=500+"px";
+			animate(image[i],{left:0});
+		}
+		ibox.onmouseover=function(){
+			clearInterval(timer);
+		}
+		ibox.onmouseout=function(){
+			//clearInterval(timer);
+			timer=setInterval(change,2000);
+		}
+	</script>
+</html>
